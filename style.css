@@ -1,0 +1,77 @@
+header {
+    text-align: center;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Use repeat for cleaner code */
+    gap: 1rem; /* Using rem for spacing */
+    font-weight: bold;
+}
+
+.leftSection,
+.middleSection,
+.rightSection {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(181, 175, 187);
+    border-radius: 1.25rem; /* 20px to rem (20px / 16px = 1.25rem) */
+    padding: 1.25rem; /* 20px to rem */
+}
+
+.middleSection {
+    justify-content: center;
+}
+
+.DisplaySong {
+    display: flex;
+    justify-content: center;
+}
+
+.buttonBox {
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem; /* 20px to rem */
+    margin: 1.25rem; /* 20px to rem */
+}
+
+.buttonBox button {
+    border-radius: 1.875rem; /* 30px to rem */
+    padding: 0.625rem; /* 10px to rem */
+    width: 10rem; /* Use rem for width */
+    background-color: bisque;
+    font-weight: bold;
+}
+
+.buttonBox button:hover {
+    width: 10.5rem; /* 105px to rem */
+    background-color: rgb(196, 255, 199);
+    font-weight: bold;
+    color: blueviolet;
+}
+
+#audio-player {
+    text-align: center;
+    justify-content: center;
+    margin-left: 2.5rem; /* Center horizontally */
+    margin-right: auto; /* Center horizontally */
+    width: 80%; /* Use a percentage for responsiveness */
+    max-width: 600px; /* Optional: set a maximum width */
+}
+
+
+/* Media Queries for Better Responsiveness */
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr; /* Stacks columns on smaller screens */
+    }
+    
+    .buttonBox {
+        flex-direction: column; /* Stack buttons vertically on small screens */
+        gap: 1rem; /* Adjust gap for smaller screens */
+    }
+
+    #audio-player {
+        margin-left: 0; /* Center on small screens */
+    }
+}

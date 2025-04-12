@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body[data-theme='dark'] {
+            background-color: #333;
+            color: white;
+        }
+
+        body[data-theme='light'] {
+            background-color:rgb(211, 197, 176);
+            background-image: url(download.jpg);
+             background-position: center;
+              background-repeat: no-repeat;
+              background-size: cover;
+            color: black;
+        }
+
+        header, footer {
+            text-align: center;
+            padding: 10px;
+        }
+
+        main {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .leftSection, .middleSection, .rightSection {
+            width: 30%;
+        }
+
+        #songList, #allPlaylists, #currentPlaylist {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .buttonBox {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body data-theme="light">
+    <header >
+        <h1 style="padding: 10px; margin: 10px; background-color: #ccc; border-radius: 30px;">Music Player</h1>
+        <button onclick="toggleTheme() " style="border: #333;margin-top:10px ; border: #333 solid;  border-radius: 10px; padding: 10px;">Toggle Theme</button>
+    </header>
+    <main>
+        <section class="leftSection">
+            <div>
+                <label>Filter by Genre</label>
+                <select id="songType" style="border: #333; border-radius: 10px; padding: 10px;">
+                    <option value="">All</option>
+                    <option value="Pop">Pop</option>
+                    <option value="Rock">Rock</option>
+                    <option value="Jazz">Jazz</option>
+                </select>
+            </div>
+            <div id="leftSongs">
+                <h3>All Songs</h3>
+                <input type="text" id="searchSong" style="border: #333; border-radius: 10px; padding: 10px;" placeholder="Search songs...">
+                <div id="songList"></div>
+            </div>
+        </section>
+        <section class="middleSection">
+            <div class="DisplaySong">
+                <img src="music.png" id="display-img" alt="Current Song Image" />
+            </div>
+            <div style="margin: 20px;">
+                <audio id="audio-player" controls>
+                    Your browser does not support the audio element.
+                </audio>
+                <div class="buttonBox">
+                    <button id="prev">Previous</button>
+                    <button id="next">Next</button>
+                </div>
+                <div class="buttonBox">
+                    <button id="addToPlaylist">Add to Playlist</button>
+                </div>
+            </div>
+        </section>
+        <section class="rightSection">
+            <div >
+                <input type="text" style="border: #333; border-radius: 10px; padding: 10px;" id="playlistName" placeholder="New Playlist Name">
+                <br>
+                <button id="createPlaylist" style="border: #333;margin-top:10px ; border: #333 solid;  border-radius: 10px; padding: 10px;">Create Playlist</button>
+            </div>
+            <div>
+                <p>All Playlists</p>
+                <input type="text" style="border: #333; border-radius: 10px; padding: 10px;" id="searchPlaylist" placeholder="Search playlists...">
+                <div id="allPlaylists" style="border: none;"></div>
+            </div>
+            <div>
+                <p>Current Playlist</p>
+                <div id="currentPlaylist" style="border: none;"></div>
+            </div>
+        </section>
+    </main>
+    <footer></footer>
+    <script src="script.js"></script>
+</body>
+</html>
